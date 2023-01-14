@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="head">Firdaus's Weather App</h1>
+      <div class="main">
+        <div class="left">
+          <div class="btn">
+            <button onclick="fetchData()">Get Weather</button>
+          </div>
+          <div class="div-left">
+            <span class="city">City</span>
+            <span class="cname">London</span>
+            <span class="cname">New York</span>
+            <span class="cname">Los Angeles</span>
+            <span class="cname">Las Vegas</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="input">
+            <input type="text" id="input" placeholder="City name" />
+            <button class="search" onclick="match()">Search</button>
+          </div>
+
+          <div class="table-right">
+            <table class="tb-right">
+              <thead class="thead">
+                <tr>
+                  <th class="th">City</th>
+                  <th class="th">Discription</th>
+                  <th class="th">Temperature (°C)</th>
+                  <th class="th">Pressure(hPa)</th>
+                  <th class="th">Data age (hrs)</th>
+                  <th class="th"></th>
+                </tr>
+              </thead>
+              <tbody id="table"></tbody>
+            </table>
+            <h2 id="nodata">No data</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
