@@ -1,9 +1,5 @@
-// function fun() {
-//     const change = document.getElementsByClassName("cname").innerText
-//     console.log(change);
-// }
 
-// fun()
+
 let i = 0;
 function fetchData() {
     if (i < 4) {
@@ -18,11 +14,19 @@ function fetchData() {
                 console.log(data);
                 let table = document.getElementById('table');
 
-    
+                let dates = new Date()
                 let row = document.createElement('tr');
                 let tdata = document.createElement('td');
                 // city.innerHTML = city;
-                let date_time = document.createElement('td');
+              let dTime = new Date(data.date_and_time)
+              let diff = dates.getTime() - dTime;
+              let diff_in_hours=Math.floor(diff / 1000/ 60 /60)
+              
+              let datetime = document.createElement('td');
+              datetime.innerHTML = diff_in_hours;
+              // console.log(dTime);
+              
+              // console.log(diff);
                 let description = document.createElement('td');
                 let humidity = document.createElement('td')
                 let button = document.createElement('button')
@@ -30,11 +34,13 @@ function fetchData() {
                 let temp = document.createElement('td')
                 
                 table.appendChild(row)
-                row.appendChild(tdata).innerHTML = city;
-                row.appendChild(date_time).innerHTML = data.date_and_time;
-                row.appendChild(description).innerHTML = data.description;
-                row.appendChild(temp).innerHTML = data.temp_in_celsius;
-                row.appendChild(humidity).innerHTML = data.humidity_in_percent;
+              row.appendChild(tdata).innerHTML = city;
+             
+              // console.log(dates);
+              row.appendChild(description).innerHTML = data.description;
+              row.appendChild(temp).innerHTML = data.temp_in_celsius;  
+              row.appendChild(humidity).innerHTML = data.humidity_in_percent;
+              row.appendChild(datetime)
                 row.appendChild(button).innerText = "delete"
                 button.addEventListener("click", () => {
                     removeData(row)
@@ -59,7 +65,7 @@ function fetchData() {
 
 // fetchData()
 
-function match() {
+function search() {
     let input1 = document.getElementById("input").value;
     let row = document.getElementsByTagName("tr");
     if (input1 === "London") {
